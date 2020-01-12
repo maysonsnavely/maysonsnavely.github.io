@@ -75,15 +75,15 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-								<form method="post" name="contact_form"
-								action="contact-form-handler.php">
-									Your Name:
-									<input type="text" name="name">
-									Email Address:
-									<input type="text" name="email">
-									Message:
-									<textarea name="message"></textarea>
-									<input type="submit" value="Submit">
+								<form method="post" name="myemailform" action="form-to-email.php">
+
+										Enter Name:	<input type="text" name="name">
+										
+										Enter Email Address:	<input type="text" name="email">
+										
+										Enter Message:	<textarea name="message"></textarea>
+										
+										<input type="submit" value="Send Form">
 								</form>
 
 								<script language="JavaScript">
@@ -94,39 +94,32 @@
 										  "Please enter a valid email address");
 								</script>
 
-<php
-$errors = '';
-$myemail = 'maysonsnavely@gmail.com';//<-----Put Your email address here.
-if(empty($_POST['name'])  ||
-   empty($_POST['email']) ||
-   empty($_POST['message']))
-{
-    $errors .= "\n Error: all fields are required";
-}
-$name = $_POST['name'];
-$email_address = $_POST['email'];
-$message = $_POST['message'];
-if (!preg_match(
-"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
-$email_address))
-{
-    $errors .= "\n Error: Invalid email address";
-}
-
-if( empty($errors))
-{
-$to = $myemail;
-$email_subject = "Contact form submission: $name";
-$email_body = "You have received a new message. ".
-" Here are the details:\n Name: $name \n ".
-"Email: $email_address\n Message \n $message";
-$headers = "From: $myemail\n";
-$headers .= "Reply-To: $email_address";
-mail($to,$email_subject,$email_body,$headers);
-//redirect to the 'thank you' page
-header('Location: contact-form-thank-you.html');
-}
+<?php
+  $name = $_POST['name'];
+  $visitor_email = $_POST['email'];
+  $message = $_POST['message'];
 ?>
+<?php
+	$email_from = 'maysonsnavely@gmail.com';
+
+	$email_subject = "New Form submission";
+
+	$email_body = "You have received a new message from the user $name.\n".
+                            "Here is the message:\n $message".
+?>
+<?php
+
+  $to = "yourname@yourwebsite.com";
+
+  $headers = "From: $email_from \r\n";
+
+  $headers .= "Reply-To: $visitor_email \r\n";
+
+  mail($to,$email_subject,$email_body,$headers);
+
+ ?>
+
+
 
 
 						</section>
