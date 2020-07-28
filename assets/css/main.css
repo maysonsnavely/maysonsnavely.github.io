@@ -4357,6 +4357,7 @@ input, select, textarea {
 						body{	
 							align-content: center;
 							margin:50;
+
 							padding:50;
 							background:rgb(0, 0, 0);
 						}
@@ -4370,19 +4371,19 @@ input, select, textarea {
 							
 						}
 						.goal{
+							position: relative;
 							border-radius: 25px;
 							background: rgb(255, 255, 255);
 							background-position: left top;
 							background-repeat: repeat;
 							padding: 20px;
-							width: 400px;
-							height: 250px;
 							border-style: solid;
 							border-width: medium;
-							border-left-color: rgb(0,135,68);
-							border-right-color: rgb(0,87,231);
-							border-top-color: rgb(214,45,32);
-							border-bottom-color:  rgb(255,167,0);
+							border-left-color: black;
+							border-right-color: black;
+							border-top-color: black;
+							border-bottom-color: black;
+							height: 18em;
 							
 						}
 						.hr{
@@ -4390,17 +4391,21 @@ input, select, textarea {
 							height: 4px;
 							margin-left: auto;
 							margin-right: auto;
-							background-color:rgb(7, 157, 177);
+							background-color:black;
 							border: 0 none;
 							margin-top: 2px;
 							margin-bottom:100px
 						}
-						.columnmiddle {
-							column-count: 3;
-							float: large;
-							width: 40%;
-							column-gap: 3 em;
+						.new_column{
+							display: grid;
+							grid-template-columns:1fr 1fr;
 						}
+						.new_column .goal {
+							margin: 0 auto;
+						}
+
+
+
 						.columnleft{
 							float: left;
 							width: 50%;
@@ -4426,10 +4431,10 @@ input, select, textarea {
 						}
 						.progress1{
 							float: center;
-							width:112.5px;
+							width:190px;
 							height: 10px;
 							border-radius: 10px;
-							background-color: #ffe600;
+							background-color: #1c920d;
 							align-content: left;
 						}
 						.progress-bar2 {
@@ -4443,10 +4448,10 @@ input, select, textarea {
 						}
 						.progress2{
 							float: center;
-							width:140px;
+							width:112.5px;
 							height: 10px;
 							border-radius: 10px;
-							background-color: #1c920d;
+							background-color: #ffe600;
 							align-content: center;
 						}
 						.progress-bar3 {
@@ -4477,7 +4482,7 @@ input, select, textarea {
 						}
 						.progress4{
 							float: center;
-							width:140px;
+							width:190px;
 							height: 10px;
 							border-radius: 40px;
 							background-color: #00a955;
@@ -4511,10 +4516,10 @@ input, select, textarea {
 						}
 						.progress6{
 							float: center;
-							width:140px;
+							width:112.5px;
 							height: 10px;
 							border-radius: 40px;
-							background-color: #00a955;
+							background-color: #ffe600;
 							align-content: center;
 						}
 						* {box-sizing: border-box}
